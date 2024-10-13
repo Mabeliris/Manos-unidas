@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { auth } from "./firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
 import { useNavigate } from "react-router-dom";
+import logo from './assets/logo.png';
 
 
 export function Auth() {
@@ -21,6 +21,9 @@ export function Auth() {
         setError(null);
         const user = userCredential.user;
         console.log("Usuario registrado:", user);
+
+        // Mostrar alerta de éxito
+        alert("¡Usuario registrado con éxito! Por favor, inicia sesión.");
         
         // Navegar a la página de inicio de sesión después de un registro exitoso
         navigate("/Login");
@@ -57,6 +60,7 @@ export function Auth() {
 
     <>
       <section className="form-container">
+      <img src={logo} alt="Descripción de la imagen" className="login-image" />
 
         <form onSubmit={handleRegister} className="auth-form">
           <label htmlFor="email">Email</label>

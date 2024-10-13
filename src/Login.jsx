@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { auth } from "./firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import './Login.css';
+import logo from './assets/logo.png';
 
 export function Login() {
   const [email, setEmail] = useState("");
@@ -58,7 +60,8 @@ export function Login() {
   return (
     <>
       <section className="form-container">
-        <form onSubmit={handleLogin} className="auth-form">
+      <img src={logo} alt="Descripción de la imagen" className="login-image" />
+      <form onSubmit={handleLogin} className="auth-form">
           <label htmlFor="email">Email</label>
           <input
             type="email"
