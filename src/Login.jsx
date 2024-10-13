@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { auth } from "./firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -18,7 +20,8 @@ export function Login() {
         
         setError("");
         const user = userCredential.user;
-        console.log("Usuario registrado:", user);
+        console.log("Has iniciado sesiòn correctamente:", user);
+        navigate("/Feed");
       })
       .catch((error) => {
         let errorMessage;
