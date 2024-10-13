@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { auth } from "./firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+
 import { useNavigate } from "react-router-dom";
+
 
 export function Auth() {
   const [email, setEmail] = useState("");
@@ -24,14 +26,38 @@ export function Auth() {
         navigate("/Login");
       })
       .catch((error) => {
+        let errorMessage;
+
+        switch (error.code) {
+          case 'auth/invalid-email':
+            errorMessage = "El correo electrónico no es válido.";
+            console.error(errorMessage);
+            break;
+          case 'auth/invalid-password':
+            errorMessage = "La contraseña debe tener al menos seis caracteres.";
+            console.error(errorMessage);
+            break;
+          case 'auth/email-already-exists':
+            errorMessage = "El correo electrónico ya está registrado.";
+            console.error(errorMessage);
+            break;
+          default:
+            errorMessage = "Ha ocurrido un error desconocido.";
+            console.error("Error desconocido:", error.code);
+        }
+      
+
+
         setError(error.message);
         setSuccess(false);
       });
   };
 
   return (
-    <div className="auth-container">
-      <div className="form-container">
+
+    <>
+      <section className="form-container">
+
         <form onSubmit={handleRegister} className="auth-form">
           <label htmlFor="email">Email</label>
           <input
@@ -60,7 +86,7 @@ export function Auth() {
           )}
           {error && <p style={{ color: "red" }}>Ingrese sus datos </p>}
         </form>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
