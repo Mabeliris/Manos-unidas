@@ -1,0 +1,41 @@
+/* Navbar.css */
+.navbar {
+    background-color: #ffffff; /* Color de fondo blanco */
+    height: 50px; /* Establece el alto del Navbar */
+    padding: 0 20px; /* Ajusta el padding lateral */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Asegura espacio entre el logo y los botones */
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center; /* Centra verticalmente el logo */
+    justify-content: flex-start; /* Alinea el logo hacia la izquierda */
+}
+
+  
+.logo-img {
+    height: 300px; /* Ajusta la altura del logo */
+    width: auto; /* Mantiene la relación de aspecto */
+    margin-left: -30px;
+}
+  
+.nav-buttons {
+    display: flex; /* Usa flexbox para los botones */
+    gap: 15px; /* Espacio entre los botones */
+}
+  
+/* Aumentar la especificidad del selector para los botones */
+.navbar .nav-buttons button {
+    padding: 10px 15px; /* Tamaño del botón */
+    border: none; /* Sin borde */
+    color: #478ccf; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.navbar .nav-buttons button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar por encima */
+}
+

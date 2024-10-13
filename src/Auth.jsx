@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { auth } from "./firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
+import { useNavigate } from "react-router-dom";
 
 export function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
@@ -18,6 +19,9 @@ export function Auth() {
         setError(null);
         const user = userCredential.user;
         console.log("Usuario registrado:", user);
+        
+        // Navegar a la página de inicio de sesión después de un registro exitoso
+        navigate("/Login");
       })
       .catch((error) => {
         setError(error.message);
@@ -27,7 +31,6 @@ export function Auth() {
 
   return (
     <div className="auth-container">
-     
       <div className="form-container">
         <form onSubmit={handleRegister} className="auth-form">
           <label htmlFor="email">Email</label>
@@ -53,9 +56,9 @@ export function Auth() {
           </button>
 
           {success && (
-              <p style={{ color: "green" }}>¡Usuario registrado con éxito!</p>
-            )}
-            {error && <p style={{ color: "red" }}>Ingrese sus datos </p>}
+            <p style={{ color: "green" }}>¡Usuario registrado con éxito!</p>
+          )}
+          {error && <p style={{ color: "red" }}>Ingrese sus datos </p>}
         </form>
       </div>
     </div>
