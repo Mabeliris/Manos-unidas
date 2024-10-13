@@ -26,15 +26,16 @@ input[type="file"] {
     margin-bottom: 10px;
 }
 
-button {
-    padding: 10px;
-    background-color: #2575fc; /* Color verde para el botón */
-    color: white;
+.btn-publicar {
+    background-color: #478ccf;
+    color: #ffffff;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
     font-size: 16px;
-    width: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 10%; /* Asegura que el botón use el ancho completo */
 }
 
 button:hover {
@@ -43,5 +44,5 @@ button:hover {
 
 p {
     text-align: center; /* Centra el texto de advertencia */
-    color:black; /* Color rojo para el mensaje de advertencia */
+    color:rgb(0, 0, 0); /* Color rojo para el mensaje de advertencia */
 }

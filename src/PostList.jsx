@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { db } from './firebaseConfig'; // Asegúrate de tener esto configurado
 import { collection, getDocs } from 'firebase/firestore';
+import './PostList.css';
 
 export function PostList () {
     const [posts, setPosts] = useState([]);
@@ -23,18 +24,22 @@ export function PostList () {
     return (
         <>
             {posts.map(post => (
-                <article key={post.id} style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '10px' }}>
+                <article 
+                    key={post.id} 
+                    style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '10px' }}
+                >
                     <p>{post.comment}</p>
                     <img src={post.imageUrl} alt={post.comment} style={{ maxWidth: '100%', height: 'auto' }} />
                     <p>{post.createdAt}</p>
-
-                    <button onClick={mostrarAlerta}>Unirse</button>
+    
+                    <button 
+                        className="btn-unirse" // Aquí agregas la clase al botón
+                        onClick={mostrarAlerta}
+                    >
+                        Unirse
+                    </button>
                 </article>
-
-              
             ))}
         </>
     );
-};
-
-
+}    

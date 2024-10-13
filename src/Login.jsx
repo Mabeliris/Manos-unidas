@@ -62,35 +62,35 @@ export function Login() {
   };
 
   return (
-    <>
-      <section className="form-container">
-      <img src={logo} alt="Descripción de la imagen" className="login-image" />
-      <form onSubmit={handleLogin} className="auth-form">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className="form-wrapper"> {/* Contenedor que centra todo */}
+        <section className="form-container">
+            <img src={logo} alt="Descripción de la imagen" className="login-image" />
+            <form onSubmit={handleLogin} className="auth-form">
+                <label htmlFor="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
 
-          <label htmlFor="password">Contraseña</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+                <label htmlFor="password">Contraseña</label>
+                <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
 
-          <button type="submit" className="submit-btn" disabled={loading} >
-           {loading ? "Iniciando sesión..." : "Iniciar sesión"}
-          </button>
+                <button type="submit" className="submit-btn" disabled={loading}>
+                    {loading ? "Iniciando sesión..." : "Iniciar sesión"}
+                </button>
 
-          {error && <p style={{ color: "red" }}>{error}</p>}
-        </form>
-      </section>
-    </>
-  );
+                {error && <p style={{ color: "red" }}>{error}</p>}
+            </form>
+        </section>
+    </div>
+);
 }
