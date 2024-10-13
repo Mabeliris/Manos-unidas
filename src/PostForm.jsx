@@ -52,7 +52,6 @@ export function PostForm ()  {
     if (!auth.currentUser) {
         return <p>Debes iniciar sesión para publicar.</p>;
     }
-
     return (
         <form onSubmit={handleSubmit}>
             <textarea
@@ -67,10 +66,13 @@ export function PostForm ()  {
                 onChange={(e) => setImage(e.target.files[0])}
                 required
             />
-            <button type="submit">Publicar</button>
-
+            <button 
+                type="submit" 
+                className="btn-publicar" // Aquí agregas la clase al botón
+            >
+                Publicar
+            </button>
         </form>
     );
-};
-
+}    
 

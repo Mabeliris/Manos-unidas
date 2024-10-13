@@ -7,7 +7,7 @@ import {Login } from './Login';
 import  Navbar from './Navbar';
 import { Auth } from './Auth';
 import { About }from './About';
-import { Feed } from './feed';
+import { Feed } from './Feed';
 
 function App() {
   return (

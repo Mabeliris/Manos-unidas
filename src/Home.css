@@ -28,37 +28,38 @@
 }
 
 
-  h1 {
-    margin: 10px 0; /* Espacio entre los títulos */
-    font-size: 50px;
-  }
-  
-  h2 {
-    margin: 10px 0; /* Espacio entre los títulos */
-  }
+h1 {
+  margin-top: 30px; 
+  margin-bottom:10px ;
+  font-size: 50px;
+}
+
+h2 {
+  margin-top: 1px; /* Ajusta solo el margen superior */
+}
+
   
   .button {
-    margin: 10px 0; /* Espacio entre los títulos */
+    margin: 30px 0; /* Espacio entre los títulos */
 
   }
 
   .register-button {
-    display: inline-block; /* Cambiado a inline-block para que el ancho se ajuste al contenido */
-    margin: 20px auto; /* Centrado horizontalmente */
-    padding: 10px 20px; /* Tamaño del botón */
-    background-color: #007BFF; /* Color de fondo del botón */
-    color: white; /* Color del texto */
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    font-size: 16px; /* Tamaño del texto */
-    transition: background-color 0.3s; /* Transición suave para el fondo */
-    width: auto; /* Permite que el botón se ajuste al tamaño del contenido */
-    max-width: 200px; /* Limita el ancho máximo del botón */
+    display: block; /* Hace que el botón ocupe toda la línea */
+    margin: 20px auto; /* Centra el botón horizontalmente */
+    padding: 10px 20px;
+    background-color: #478ccf;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    max-width: 100px;
+    text-align: center;
 }
 
-
 .register-button:hover {
-    background-color: #0056b3; /* Color de fondo al pasar por encima */
+    background-color: #0056b3;
 }
