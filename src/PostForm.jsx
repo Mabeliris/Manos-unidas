@@ -4,7 +4,7 @@ import { db, storage } from './firebaseConfig'; // Asegúrate de tener esto conf
 import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes } from 'firebase/storage';
 import { getAuth } from 'firebase/auth';
-
+import './PostForm.css';
 export function PostForm ()  {
     const [comment, setComment] = useState('');
     const [image, setImage] = useState(null);
@@ -66,6 +66,7 @@ export function PostForm ()  {
                 required
             />
             <button type="submit">Publicar</button>
+
         </form>
     );
 };
