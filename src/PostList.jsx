@@ -16,14 +16,22 @@ export function PostList () {
         fetchPosts();
     }, []);
 
+    const mostrarAlerta = () => {
+        alert("Gracias por unirte, en los próximos minutos recibirás un correo con toda la información de los lugares a los cuales puedes unirte y marcar la diferencia.");
+    };
+
     return (
         <>
             {posts.map(post => (
                 <article key={post.id} style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '10px' }}>
                     <p>{post.comment}</p>
                     <img src={post.imageUrl} alt={post.comment} style={{ maxWidth: '100%', height: 'auto' }} />
-                    <p>{new Date(post.createdAt).toLocaleString()}</p>
+                    <p>{post.createdAt}</p>
+
+                    <button onClick={mostrarAlerta}>Unirse</button>
                 </article>
+
+              
             ))}
         </>
     );

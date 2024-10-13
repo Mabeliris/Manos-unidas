@@ -20,12 +20,26 @@ export function PostForm ()  {
 
         // Obtener la URL de la imagen
         const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${storage.app.options.storageBucket}/o/images%2F${image.name}?alt=media`;
+        
+        const date = new Date();
+        const [month, day, year] = [
+            date.getMonth() + 1, // +1 para que comience en 1
+            date.getDate(),
+            date.getFullYear(),
+        ];
+        const [hour, minutes, seconds] = [
+            date.getHours(),
+            date.getMinutes(),
+            date.getSeconds(),
+        ];
+        const chain = `${month}/${day}/${year} ${hour}:${minutes}:${seconds}`;
+
 
         await addDoc(collection(db, 'posts'), {
             comment,
             imageUrl,
             userId: auth.currentUser.uid,
-            createdAt: new Date(),
+            createdAt: chain,
         });
 
         setComment('');

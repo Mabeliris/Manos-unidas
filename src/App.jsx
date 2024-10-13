@@ -1,5 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { RequireAuth } from './RequireAuth'; // Asegúrate de que la ruta sea correcta
+
 import Home from './Home';
 import {Login } from './Login';
 import  Navbar from './Navbar';
@@ -16,7 +18,14 @@ function App() {
         <Route path="Navbar" element={<Navbar />} />
         <Route path="Auth" element={<Auth />} />
         <Route path="About" element={<About />} />
-        <Route path="Feed" element={<Feed />} />
+        <Route 
+  path="/Feed" 
+  element={
+    <RequireAuth>
+      <Feed />
+    </RequireAuth>
+  }
+></Route>
 
         
       </Routes>
