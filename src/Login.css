@@ -1,0 +1,75 @@
+/* Estilos generales */
+/*body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}*/
+
+/* Contenedor del formulario */
+
+.form-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 320px;
+    text-align: center;
+}
+
+/* Estilos del formulario */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.auth-form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Botón de envío */
+.submit-btn {
+    background-color: #2575fc;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #1a5fcc;
+}
+
+.submit-btn:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Mensaje de error */
+.auth-form p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.login-image {
+    width: 100%; /* O el tamaño que prefieras */
+    height: auto; /* Mantener la proporción */
+    margin-bottom: 20px; /* Espacio entre la imagen y el formulario */
+    border-radius: 8px; /* Bordes redondeados (opcional) */
+}
