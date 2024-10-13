@@ -1,15 +1,18 @@
-//import './Navbar.css'; // Importa tu archivo CSS
+import './Navbar.css';
+import logo from './assets/logo.png';
+import { Link } from "react-router-dom"; // Importa Link para la navegación
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src="ruta-de-tu-logo.png" alt="Logo" />
+        <img src={logo} alt="Logo" className="logo-img" />
       </div>
-      <div className="navbar-links">
-        <button>Home</button>
-        <button>About</button>
-        <button>Iniciar Sesión</button>
+      <div className="nav-buttons">
+        {/* Envolver los botones en Link para navegación */}
+        <Link to="/" className="nav-button">Home</Link>
+        <Link to="/About" className="nav-button">About</Link>
+        <Link to="/Login" className="nav-button">Iniciar Sesión</Link>
       </div>
     </nav>
   );
