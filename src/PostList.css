@@ -1,0 +1,16 @@
+
+.btn-unirse {
+    background-color: #478ccf;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 10%; /* Asegura que el botón use el ancho completo */
+}
+
+button:hover {
+    background-color: #636e8d; /* Color verde más oscuro al pasar el mouse */
+}

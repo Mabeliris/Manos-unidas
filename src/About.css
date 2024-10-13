@@ -1,30 +1,30 @@
 .about-container {
-    padding: 20px; /* Espaciado alrededor del contenedor */
-    background-color: #f9f9f9; /* Color de fondo claro */
-  }
-  
-  .about-content {
-    display: flex; /* Utiliza Flexbox para la disposición */
-    align-items: center; /* Alinea verticalmente el contenido */
-    justify-content: space-between; /* Espacio entre el texto y la imagen */
-    max-width: 800px; /* Ancho máximo para el contenido */
-    margin: 0 auto; /* Centra el contenido en la página */
-  }
-  
-  .text-container {
-    flex: 1; /* Permite que el contenedor del texto ocupe el espacio disponible */
-    margin-right: 20px; /* Espacio entre el texto y la imagen */
-  }
-  
-  .about-text {
-    font-size: 18px; /* Tamaño de fuente del párrafo */
-    line-height: 1.6; /* Altura de línea para mejor legibilidad */
-    color: #478ccf; /* Color del texto */
-    margin: 20px 0; /* Margen superior e inferior */
-  }
-  
-  .voluntarios {
-    width: 300px; /* Ajusta el ancho de la imagen */
-    height: auto; /* Mantiene la relación de aspecto */
-  }
-  
+  padding: 20px; /* Espaciado alrededor del contenedor */
+}
+
+.about-content {
+  display: flex; /* Utiliza Flexbox para la disposición */
+  align-items: center; /* Alinea verticalmente el contenido */
+  justify-content: space-between; /* Espacio entre el texto y la imagen */
+  max-width: 800px; /* Ancho máximo para el contenido */
+  margin: 0 auto; /* Centra el contenido en la página */
+}
+
+.text-container {
+  flex: 1; /* Permite que el contenedor del texto ocupe el espacio disponible */
+  margin-right: 20px; /* Espacio entre el texto y la imagen */
+  margin-top: 30px; /* Ajusta este margen para bajar el texto */
+}
+
+.about-text {
+  font-size: 18px; /* Tamaño de fuente del párrafo */
+  line-height: 1.6; /* Altura de línea para mejor legibilidad */
+  color: #478ccf; /* Color del texto */
+  margin: 20px 0; /* Margen superior e inferior */
+}
+
+.voluntarios {
+  width: 300px; /* Ajusta el ancho de la imagen */
+  height: auto; /* Mantiene la relación de aspecto */
+  margin-top: 30px; /* Ajusta este margen para bajar la imagen */
+}

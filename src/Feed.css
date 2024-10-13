@@ -1,0 +1,27 @@
+.button-container {
+    display: flex; /* Usa flexbox para facilitar la alineación */
+    justify-content: flex-end; /* Alinea el botón a la derecha */
+    margin-bottom: 20px; /* Espacio inferior opcional */
+}
+
+
+.logout-button {
+    background-color: #478ccf;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Asegura que el botón use el ancho completo */
+    margin-top: 10px; /* Espacio superior entre el botón y el formulario */
+
+}
+
+.header-title {
+    margin-top: 30px; 
+    margin-bottom:10px ;
+    font-size: 30px;
+    color:#478ccf;
+}

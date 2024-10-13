@@ -1,24 +1,27 @@
+
 import { useEffect, useState } from "react";
 import { db } from "./firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { CommentList } from "./CommentList";
 import { CommentForm } from "./CommentForm";
+import './PostList.css';
 
-export function PostList() {
-  const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const postRef = collection(db, "posts");
-      const postDocs = await getDocs(postRef);
-      const postsData = postDocs.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setPosts(postsData);
-    };
-    fetchPosts();
-  }, []);
+export function PostList () {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const postRef = collection(db, 'posts');
+            const postDocs = await getDocs(postRef);
+            const postsData = postDocs.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            setPosts(postsData);
+        };
+        fetchPosts();
+    }, []);
+
+ 
+
 
   const mostrarAlerta = () => {
     alert(
@@ -45,7 +48,13 @@ export function PostList() {
           />
           <p>{post.createdAt}</p>
 
-          <button onClick={mostrarAlerta}>Unirse</button>
+          
+                    <button 
+                        className="btn-unirse" // Aquí agregas la clase al botón
+                        onClick={mostrarAlerta}
+                    >
+                        Unirse
+                    </button>
           <CommentForm postId={post.id} />
           <CommentList postId={post.id} />
         </article>
@@ -53,3 +62,4 @@ export function PostList() {
     </>
   );
 }
+

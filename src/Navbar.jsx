@@ -10,9 +10,9 @@ const Navbar = () => {
       </div>
       <div className="nav-buttons">
         {/* Envolver los botones en Link para navegación */}
-        <Link to="/" className="nav-button">Home</Link>
-        <Link to="/About" className="nav-button">About</Link>
-        <Link to="/Login" className="nav-button">Iniciar Sesión</Link>
+        <Link to="/" className="nav-buttons">Home</Link>
+        <Link to="/About" className="nav-buttons">About</Link>
+        <Link to="/Login" className="nav-buttons">Iniciar Sesión</Link>
       </div>
     </nav>
   );
