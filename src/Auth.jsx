@@ -2,7 +2,6 @@ import { useState } from "react";
 import { auth } from "./firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
-
 export function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,15 +19,36 @@ export function Auth() {
         console.log("Usuario registrado:", user);
       })
       .catch((error) => {
+        let errorMessage;
+
+        switch (error.code) {
+          case 'auth/invalid-email':
+            errorMessage = "El correo electrónico no es válido.";
+            console.error(errorMessage);
+            break;
+          case 'auth/invalid-password':
+            errorMessage = "La contraseña debe tener al menos seis caracteres.";
+            console.error(errorMessage);
+            break;
+          case 'auth/email-already-exists':
+            errorMessage = "El correo electrónico ya está registrado.";
+            console.error(errorMessage);
+            break;
+          default:
+            errorMessage = "Ha ocurrido un error desconocido.";
+            console.error("Error desconocido:", error.code);
+        }
+      
+
+
         setError(error.message);
         setSuccess(false);
       });
   };
 
   return (
-    <div className="auth-container">
-     
-      <div className="form-container">
+    <>
+      <section className="form-container">
         <form onSubmit={handleRegister} className="auth-form">
           <label htmlFor="email">Email</label>
           <input
@@ -53,11 +73,11 @@ export function Auth() {
           </button>
 
           {success && (
-              <p style={{ color: "green" }}>¡Usuario registrado con éxito!</p>
-            )}
-            {error && <p style={{ color: "red" }}>Ingrese sus datos </p>}
+            <p style={{ color: "green" }}>¡Usuario registrado con éxito!</p>
+          )}
+          {error && <p style={{ color: "red" }}>Ingrese sus datos </p>}
         </form>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
