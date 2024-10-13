@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { db } from "./firebaseConfig"; // Asegúrate de que tu configuración de Firebase esté bien importada
-import { doc, updateDoc, arrayUnion } from "firebase/firestore"; // Importa arrayUnion
+import { db } from "./firebaseConfig"; 
+import { doc, updateDoc, arrayUnion } from "firebase/firestore"; 
 import PropTypes from "prop-types";
 
 export function CommentForm({ postId }) {
@@ -14,7 +14,7 @@ export function CommentForm({ postId }) {
     }
 
     const date = new Date();
-    const createdAt = date.toISOString(); // Usar un formato de fecha ISO
+    const createdAt = date.toISOString(); 
 
     try {
       // Referencia al documento de la publicación
@@ -22,7 +22,7 @@ export function CommentForm({ postId }) {
 
       // Añadir el comentario al campo 'comments' del documento
       await updateDoc(postRef, {
-        comments: arrayUnion({ // Usa arrayUnion directamente
+        comments: arrayUnion({ // Usa arrayUnion directamente para unir el campo para comentarios
           comment,
           createdAt,
         }),
@@ -42,7 +42,7 @@ export function CommentForm({ postId }) {
         placeholder="Escribe un comentario..."
         required
       />
-      <button type="submit">Comentar</button>
+      <button type="submit" className="btn-unirse">Comentar</button>
     </form>
   );
 }
