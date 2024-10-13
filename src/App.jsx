@@ -5,6 +5,7 @@ import {Login } from './Login';
 import  Navbar from './Navbar';
 import { Auth } from './Auth';
 import { About }from './About';
+import { Feed } from './feed';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="Navbar" element={<Navbar />} />
         <Route path="Auth" element={<Auth />} />
         <Route path="About" element={<About />} />
+        <Route path="Feed" element={<Feed />} />
+
         
       </Routes>
     </BrowserRouter>
