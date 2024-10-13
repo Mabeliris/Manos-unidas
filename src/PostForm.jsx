@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { db, storage } from './firebaseConfig'; // Asegúrate de tener esto configurado
+import { db, storage } from './firebaseConfig'; 
 import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes } from 'firebase/storage';
 import { getAuth } from 'firebase/auth';

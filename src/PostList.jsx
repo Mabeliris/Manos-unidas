@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { db } from "./firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
+import { CommentList } from "./CommentList";
+import { CommentForm } from "./CommentForm";
 
 export function PostList() {
   const [posts, setPosts] = useState([]);
-  
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -45,8 +46,8 @@ export function PostList() {
           <p>{post.createdAt}</p>
 
           <button onClick={mostrarAlerta}>Unirse</button>
-
-          
+          <CommentForm postId={post.id} />
+          <CommentList postId={post.id} />
         </article>
       ))}
     </>
