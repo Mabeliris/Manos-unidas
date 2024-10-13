@@ -9,7 +9,8 @@ export function PostForm ()  {
     const [comment, setComment] = useState('');
     const [image, setImage] = useState(null);
     const auth = getAuth();
-
+    
+    //Para postear imagenes
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -21,9 +22,10 @@ export function PostForm ()  {
         // Obtener la URL de la imagen
         const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${storage.app.options.storageBucket}/o/images%2F${image.name}?alt=media`;
         
+        //fecha y hora de post
         const date = new Date();
         const [month, day, year] = [
-            date.getMonth() + 1, // +1 para que comience en 1
+            date.getMonth() + 1, 
             date.getDate(),
             date.getFullYear(),
         ];
@@ -46,7 +48,7 @@ export function PostForm ()  {
         setImage(null);
     };
 
-    // Verifica si el usuario está autenticado
+    // Verificar si el usuario está autenticado
     if (!auth.currentUser) {
         return <p>Debes iniciar sesión para publicar.</p>;
     }
@@ -55,7 +57,7 @@ export function PostForm ()  {
             <textarea
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="Escribe un comentario..."
+                placeholder="¿En qué quieres contribuir hoy?..."
                 required
             />
             <input

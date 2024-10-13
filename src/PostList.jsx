@@ -1,3 +1,4 @@
+
 // PostList.js
 import { useEffect, useState } from 'react';
 import { db } from './firebaseConfig'; // Asegúrate de tener esto configurado
@@ -20,6 +21,9 @@ export function PostList () {
     const mostrarAlerta = () => {
         alert("Gracias por unirte, en los próximos minutos recibirás un correo con toda la información de los lugares a los cuales puedes unirte y marcar la diferencia.");
     };
+    fetchPosts();
+  }, []);
+
 
     return (
         <>
