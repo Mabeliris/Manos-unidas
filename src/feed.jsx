@@ -3,6 +3,7 @@ import { PostList } from './PostList';
 import { getAuth } from 'firebase/auth'; 
 import { Link } from "react-router-dom";
 import './Feed.css';
+
 export function Feed() {
     const auth = getAuth();
 

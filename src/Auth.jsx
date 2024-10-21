@@ -18,7 +18,7 @@ export function Auth() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setSuccess(true);
-        setError(null);
+        setError("");
         const user = userCredential.user;
         console.log("Usuario registrado:", user);
 
@@ -29,29 +29,29 @@ export function Auth() {
         navigate("/Login");
       })
       .catch((error) => {
-        let errorMessage;
+        console.error("Error de Firebase:", error); // Muestra el error completo en la consola
 
         switch (error.code) {
           case 'auth/invalid-email':
-            errorMessage = "El correo electrónico no es válido.";
-            console.error(errorMessage);
+            setError("El correo electrónico no es válido.");
             break;
-          case 'auth/invalid-password':
-            errorMessage = "La contraseña debe tener al menos seis caracteres.";
-            console.error(errorMessage);
+          case 'auth/weak-password': // Para contraseñas débiles
+            setError("La contraseña debe tener al menos seis caracteres.");
             break;
-          case 'auth/email-already-exists':
-            errorMessage = "El correo electrónico ya está registrado.";
-            console.error(errorMessage);
+          case 'auth/email-already-in-use': // Para correos ya registrados
+            setError("El correo electrónico ya está registrado.");
+            break;
+          case 'auth/missing-email': // Para correos faltantes
+            setError("El correo electrónico es obligatorio.");
+            break;
+          case 'auth/operation-not-allowed': // Para operaciones no permitidas
+            setError("La operación no está permitida. Verifica la configuración de Firebase.");
             break;
           default:
-            errorMessage = "Ha ocurrido un error desconocido.";
-            console.error("Error desconocido:", error.code);
+            setError("Ha ocurrido un error desconocido.");
+            break;
         }
-      
 
-
-        setError(error.message);
         setSuccess(false);
       });
   };
@@ -88,7 +88,8 @@ export function Auth() {
           {success && (
             <p style={{ color: "green" }}>¡Usuario registrado con éxito!</p>
           )}
-          {error && <p style={{ color: "red" }}>Ingrese sus datos </p>}
+          {error && <p style={{ color: "red" }}>{error}</p>}
+
         </form>
       </section>
     </>
