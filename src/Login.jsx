@@ -24,19 +24,17 @@ export function Login() {
         setSuccess(true);
         setError("");
         const user = userCredential.user;
-        console.log("Has iniciado sesiòn correctamente:", user);
+        console.log("Has iniciado sesión correctamente:", user);
 
-        // Mostrar alerta de éxito
         alert("¡Has iniciado sesión correctamente.");
 
         navigate("/Feed");
       })
       .catch((error) => {
-        console.error("Error de Firebase:", error); // Muestra el error completo en la consola
-        console.log(error.code)
+        console.error("Error de Firebase:", error);
         switch (error.code) {
           case "auth/invalid-email":
-            setError("El correo electronico no es valido.");
+            setError("El correo electronico no es válido.");
             break;
           case "auth/wrong-password":
             setError("La contraseña es incorrecta.");
@@ -45,35 +43,34 @@ export function Login() {
             setError("La contraseña debe tener al menos seis caracteres.");
             break;
           case "auth/user-not-found":
-            setError("El usuario no está registrado. Verifica el correo electrónico o crea una cuenta nueva.");
+            setError(
+              "El usuario no está registrado. Verifica el correo electrónico o crea una cuenta nueva."
+            );
             break;
-          
-            case "auth/too-many-requests": // Maneja el error de demasiados intentos fallidos
-            setError("Demasiados intentos de inicio de sesión fallidos. Por favor, intenta restablecer tu contraseña o intenta más tarde.");
+          case "auth/too-many-requests":
+            setError(
+              "Demasiados intentos de inicio de sesión fallidos. Por favor, intenta restablecer tu contraseña o intenta más tarde."
+            );
             break;
-            
           default:
             setError("Ha ocurrido un error desconocido.");
             break;
         }
         setSuccess(false);
       })
-
       .finally(() => {
-        setLoading(false); // Desactivar el estado de carga al final
+        setLoading(false);
       });
+  };
+
+  const handleForgotPassword = () => {
+    navigate("/forgot-password"); // Redirige a la página de restablecimiento de contraseña
   };
 
   return (
     <div className="form-wrapper">
-      {" "}
-      {/* Contenedor que centra todo */}
       <section className="form-container">
-        <img
-          src={logo}
-          alt="Descripción de la imagen"
-          className="login-image"
-        />
+        <img src={logo} alt="Descripción de la imagen" className="login-image" />
         <form onSubmit={handleLogin} className="auth-form">
           <label htmlFor="email">Email</label>
           <input
@@ -95,6 +92,15 @@ export function Login() {
 
           <button type="submit" className="submit-btn" disabled={loading}>
             {loading ? "Iniciando sesión..." : "Iniciar sesión"}
+          </button>
+
+          {/* Botón de "Olvidaste tu contraseña" */}
+          <button
+            type="button"
+            className="forgot-password-btn"
+            onClick={handleForgotPassword}
+          >
+            ¿Olvidaste tu contraseña?
           </button>
 
           {success && (

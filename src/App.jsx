@@ -1,37 +1,49 @@
-import './App.css'
-import { BrowserRouter, Routes, Route} from "react-router-dom";
-import { RequireAuth } from './RequireAuth'; // Asegúrate de que la ruta sea correcta
+import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { RequireAuth } from './RequireAuth'; 
+import { ForgotPassword } from './ForgotPassword';
 
 import Home from './Home';
-import {Login } from './Login';
-import  Navbar from './Navbar';
+import { Login } from './Login';
+import Navbar from './Navbar';
 import { Auth } from './Auth';
-import { About }from './About';
+import { About } from './About';
 import { Feed } from './Feed';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}/>          
-        <Route path="Login" element={<Login />} />        
-        <Route path="Navbar" element={<Navbar />} />
-        <Route path="Auth" element={<Auth />} />
-        <Route path="About" element={<About />} />
-        <Route 
-  path="/Feed" 
-  element={
-    <RequireAuth>
-      <Feed />
-    </RequireAuth>
-  }
-></Route>
-
+        {/* Ruta para la página principal */}
+        <Route path="/" element={<Home />} />
         
+        {/* Ruta para la página de inicio de sesión */}
+        <Route path="Login" element={<Login />} />
+        
+        {/* Ruta para el componente de Navbar */}
+        <Route path="Navbar" element={<Navbar />} />
+        
+        {/* Ruta para la autenticación */}
+        <Route path="Auth" element={<Auth />} />
+        
+        {/* Ruta para la página "Acerca de" */}
+        <Route path="About" element={<About />} />
+        
+        {/* Ruta para restablecer contraseña */}
+        <Route path="forgot-password" element={<ForgotPassword />} />
+        
+        {/* Ruta protegida para el Feed, solo accesible si el usuario está autenticado */}
+        <Route
+          path="/Feed"
+          element={
+            <RequireAuth>
+              <Feed />
+            </RequireAuth>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
 }
-export default App
-//<img src={viteLogo} className="logo" alt="Vite logo" />
 
+export default App;
